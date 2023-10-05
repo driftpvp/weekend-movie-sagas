@@ -16,6 +16,7 @@ function Details() {
     return (
         <main>
             <h1>Details Page</h1>
+            <button onClick={()=> history.push("/")}>Back to Movie List</button>
             <section className="genres">
                 {movies.map(movie => {
                     return (

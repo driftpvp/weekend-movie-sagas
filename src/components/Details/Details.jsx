@@ -7,6 +7,7 @@ function Details() {
 
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
+    const genres = useSelector(store => store.genres);
     const history = useHistory();
 
     useEffect(() => {
@@ -17,12 +18,22 @@ function Details() {
         <main>
             <h1>Details Page</h1>
             <button onClick={()=> history.push("/")}>Back to Movie List</button>
-            <section className="genres">
+            <section className="movies">
                 {movies.map(movie => {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} onClick={()=> history.push("/")}/>
+                            <img src={movie.poster} alt={movie.title} />
+                            
+                        </div>
+                    );
+                })}
+                <br></br>
+                {genres.map(genre => {
+                    return (
+                        <div key={genre.id} >
+                            <h3>{genre.name}</h3>
+                               
                         </div>
                     );
                 })}
